@@ -1,0 +1,32 @@
+plugins {
+    id 'com.devsoap.plugin.vaadin' version '1.3.1'
+    id 'java'
+}
+
+group 'com.qtdzz'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+vaadin {
+    version vaadinVersion
+    manageDependencies false
+}
+dependencies {
+    compile "com.vaadin:vaadin-client-compiler:${vaadinVersion}"
+    compile "com.vaadin:vaadin-client-compiled:${vaadinVersion}"
+    compile "com.vaadin:vaadin-push:${vaadinVersion}"
+    compile "com.vaadin:vaadin-server:${vaadinVersion}"
+    compile "com.vaadin:vaadin-themes:${vaadinVersion}"
+    compile "com.vaadin:vaadin-client:${vaadinVersion}"
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+// Vaadin plugin requires Gradle 4.0+
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.8'
+}
